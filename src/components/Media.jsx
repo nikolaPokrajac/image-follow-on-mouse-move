@@ -32,7 +32,7 @@ const Media = ({ url, active, x, y }) => {
 
   return (
     <img
-      className={active && 'is-active'}
+      className={active ? 'is-active' : ''}
       ref={ref}
       src={url}
       alt={url}

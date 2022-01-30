@@ -4,8 +4,6 @@ import sampleData from './utils/sampleData';
 import Title from './components/Title';
 import Media from './components/Media';
 
-console.log(sampleData);
-
 const useMousePosition = () => {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
 
@@ -34,6 +32,7 @@ const App = () => {
             author={author}
             setActiveIndex={setActiveIndex}
             index={index}
+            key={title}
           />
         ))}
       </div>
@@ -42,7 +41,15 @@ const App = () => {
           const isActive = index === activeIndex;
           const xPos = isActive ? x : 0;
           const yPos = isActive ? y : 0;
-          return <Media url={mediaUrl} active={isActive} x={xPos} y={yPos} />;
+          return (
+            <Media
+              url={mediaUrl}
+              active={isActive}
+              x={xPos}
+              y={yPos}
+              key={index}
+            />
+          );
         })}
       </div>
     </div>
